@@ -1,0 +1,18 @@
+class Solution {
+    public int[] numberOfPairs(int[] nums) {
+     return fun(nums);
+    }
+    int[] fun(int[] arr)
+    {
+         
+       int p=0,q=0;
+        Map<Integer,Integer>mp=new HashMap<>();
+        for(int i:arr)mp.put(i,mp.getOrDefault(i,0)+1);
+        for(int i:mp.values())
+        {
+            p+=i/2;
+            q+=i%2;
+        }
+        return new int[]{p,q};
+    }
+}
