@@ -1,0 +1,27 @@
+class Solution {
+    public int maximumSum(int[] nums) {
+        return fun(nums);
+    }
+    int fun(int nums[])
+    {
+         Map<Integer,Integer>mp=new LinkedHashMap<>();
+        long ans=-1;
+        for(int i:nums){
+            int val=i;
+            int sum=0;
+            while(val>0)
+            {
+                sum+=val%10;
+                val/=10;
+            }
+            if(mp.containsKey(sum)||mp.get(sum)!=null)
+            {
+                ans=Math.max(ans,(i+mp.get(sum)));
+            }
+            if(mp.size()==0)mp.put(sum,i);
+            else
+                mp.put(sum,Math.max(i,mp.getOrDefault(sum,0)));
+        }
+        return (int)ans;
+    }
+}
