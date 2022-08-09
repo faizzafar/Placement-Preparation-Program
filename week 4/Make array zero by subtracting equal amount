@@ -1,0 +1,13 @@
+class Solution {
+public:
+    int minimumOperations(vector<int>& nums) {
+        map<int,bool> m;
+        int c=0;
+        for(auto i : nums)
+        {
+            if(i!=0)
+                m[i]=true;
+        }
+        return m.size();
+    }
+};
