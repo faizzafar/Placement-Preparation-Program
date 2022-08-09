@@ -1,0 +1,10 @@
+class Solution {
+public:
+    int maximumGroups(vector<int>& grades) {
+        int p=grades.size();
+        int n=1;
+        while(((n)*(n+1))/2<=p)
+            n++;
+        return n-1;
+    }
+};
